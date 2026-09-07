@@ -1,0 +1,12 @@
+SELECT ФИО, специализация, Дата_рождения FROM [Учебная].[dbo].[Академики];
+SELECT ФИО + N'получил звание в ' + CAST(Год_присвоения_звания AS char) FROM [Учебная].[dbo].[Академики];
+SELECT ФИО + N'через 5 лет после присвоения звания', CAST((Год_присвоения_звания + 5) AS char) FROM [Учебная].[dbo].[Академики];
+SELECT DISTINCT Год_присвоения_звания FROM [Учебная].[dbo].[Академики];
+SELECT * FROM Академики ORDER BY Дата_рождения DESC;
+SELECT * FROM Академики ORDER BY Специализация DESC, Год_присвоения_звания ASC, ФИО ASC; 
+SELECT TOP 1 * FROM Академики ORDER BY ФИО DESC;
+SELECT TOP 1 LEFT(ФИО, CHARINDEX(' ', ФИО)-1) FROM Академики ORDER BY Год_присвоения_звания ASC; 
+SELECT TOP 10 PERCENT * FROM Академики ORDER BY ФИО ASC;
+SELECT TOP 5 WITH TIES * FROM Академики ORDER BY Год_присвоения_звания ASC;
+SELECT * FROM Академики ORDER BY Дата_рождения ASC OFFSET 9 ROWS;
+SELECT * FROM Академики ORDER BY ФИО ASC OFFSET 8 ROWS FETCH NEXT 2 ROWS ONLY;
