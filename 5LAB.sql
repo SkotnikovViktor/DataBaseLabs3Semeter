@@ -1,0 +1,13 @@
+SELECT * FROM Country;
+SELECT MIN(Square) AS Минимальная_площадь FROM Country;
+SELECT MAX(Population) AS Наибольшее_население FROM Country WHERE Continent = N'Северная Америка' OR Continent = N'Южная Америка';
+SELECT ROUND(AVG(Population), 1) AS Среднее_население FROM Country;
+SELECT COUNT(*) FROM Country WHERE RIGHT(Name, 2) = N'ан' AND RIGHT(Name, 4) <> N'стан';
+SELECT COUNT(*) AS Начинается_на_Р FROM Country WHERE LEFT(Continent, 1) = N'Р';
+SELECT MAX(Square) / MIN(Square) AS Во_сколько FROM Country;
+SELECT Continent, COUNT(*) FROM Country WHERE Population > 10000000 GROUP BY Continent ORDER BY COUNT(*) ASC;
+SELECT LEN(Name) AS Длина_Имени, COUNT(*) AS Количество FROM Country GROUP BY LEN(Name) ORDER BY COUNT(*) DESC;
+SELECT Continent, CAST(Population*1.1 AS bigint) AS Прогноз FROM Country;
+SELECT Continent FROM Country GROUP BY Continent HAVING (MAX(Square) / MIN(Square)) <= 10000;
+SELECT AVG(LEN(Name)) FROM Country WHERE Continent = N'Африка';
+SELECT Continent FROM Country WHERE Population > 1000000 GROUP BY Continent HAVING(AVG(Population / Square) > 30);
