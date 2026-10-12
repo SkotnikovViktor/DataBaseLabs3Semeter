@@ -1,3 +1,4 @@
+-- 3 лаба
 SELECT * FROM Country; -- Тестовый вывод
 SELECT TOP 5 Name, Capital, Square FROM Country ORDER BY Square DESC;
 SELECT * FROM Country WHERE Continent = N'Африка' AND Population <= 1000000;
